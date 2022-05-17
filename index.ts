@@ -17,7 +17,7 @@ for (const file of commandFiles) {
 }
 
 client.once('ready', () => {
-    console.log("Bot has Started")
+    console.log("Bot has started in " + client.guilds.cache.size + " guilds.")
     try {
         if(process.env.ENV === "production") {
             for(const command of commands) {
@@ -25,9 +25,9 @@ client.once('ready', () => {
                 console.log("Registered global command: " + command.getName())
             }
         } else {
-            const guild = client.guilds.cache.get(process.env.TEST_GUILD_ID as string) as Guild
+            const guild = client.guilds.cache.get(process.env.TEST_GUILD_ID as string)
             for(const command of commands) {
-                guild.commands.create(command.getJSON())
+                guild?.commands.create(command.getJSON())
                 console.log("Registered local command: " + command.getName())
             }
         }
