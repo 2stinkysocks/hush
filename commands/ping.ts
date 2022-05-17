@@ -8,7 +8,6 @@ module.exports = class Ping extends Command {
             interaction.reply("pong")
         })
         super.builder = new SlashCommandBuilder()
-            .setName("ping")
             .setDescription("Pong")
     }
 }

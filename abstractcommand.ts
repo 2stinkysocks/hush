@@ -6,7 +6,7 @@ export class Command {
     private onExecute: (interaction: CommandInteraction) => void
 
     constructor(onExecute: (interaction: CommandInteraction) => void) {
-        this.builder = new SlashCommandBuilder()
+        this.builder = new SlashCommandBuilder().setName(module.filename)
         this.onExecute = onExecute
     }
 
